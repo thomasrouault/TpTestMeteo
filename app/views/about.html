@@ -7,6 +7,8 @@
 
 <body>
 	<div ng-controller="AboutCtrl">
+	
+	{{ 'Salut' | uppercase}}
 		<h1>About</h1>
 		<h2>Test ng-repeat</h2>
 
@@ -58,9 +60,88 @@
         </p>
     </div>
   
+	<h2>Test ng-click</h2>
+	<button ng-click="count = count + 1" ng-init="count=0">
+  		Increment
+	</button>
+	<span>
+  		count: {{count}}
+	</span>
+	
+	<h2>Test ng-checked</h2>
+	<label>Check me to check both: <input type="checkbox" ng-model="leader"></label><br/>
+	<input id="checkFollower" type="checkbox" ng-checked="leader" aria-label="Follower input">
+	
+	<h2>Test ng-copy</h2>
+	<input ng-copy="copied=true" ng-init="copied=false; value='copy me'" ng-model="value">
+	copied: {{copied}}
+	
+	<h2>Test ng-cut</h2>
+	<input ng-cut="cut=true" ng-init="cut=false; value='cut me'" ng-model="value">
+	cut: {{cut}}
+	
+	<h2>Test ng-disabled</h2>
+	<label>Click me to toggle: <input type="checkbox" ng-model="checked"></label><br/>
+	<button ng-model="button" ng-disabled="checked">Button</button>
+	<div>
+	<h2>Test ng-hide</h2>	
+	Hide: <input type="checkbox" ng-model="checked" aria-label="Toggle ngHide"><br />
+	<div class="check-element animate-show-hide" ng-hide="checked">
+ 	I hide when your checkbox is checked.
+</div>
+	<h2>Test ng-if</h2>	
+	<label>Click me: <input type="checkbox" ng-model="checked" ng-init="checked=true" /></label><br/>
+	Show when checked:
+	<span ng-if="checked" class="animate-if">
+ 		This is removed when the checkbox is unchecked.
+	</span>
+	
+	<h2>Test ng-keydown (it's same for ng-keypress)</h2>	
+	<input ng-keydown="count = count + 1" ng-init="count=0">
+	key down count: {{count}}
+	
+	<h2>Test ng-keyup</h2>
+	<p>Typing in the input box below updates the key count</p>
+	<input ng-keyup="count = count + 1" ng-init="count=0"> key up count: {{count}}
 
+	<p>Typing in the input box below updates the keycode</p>
+	<input ng-keyup="event=$event">
+	<p>event keyCode: {{ event.keyCode }}</p>
+	<p>event altKey: {{ event.altKey }}</p>
+	
+	<b>Test ngMaxlength / ngMinlength / ngModel / ngModelOptions / ngMousedown / ngMouseenter / ngMouseleave / ngMousemove / ngMouseover / ngMouseup</b>
+	
+	<h2>Test ng-non-bindable</h2>
+	<div>Normal: {{1 + 2}}</div>
+	<div ng-non-bindable>Ignored: {{1 + 2}}</div>
+	
+	<h2>Test ng-open</h2>
+	<label>Toggle details: <input type="checkbox" ng-model="open"></label><br/>
+	<details id="details" ng-open="open">
+   <summary>List</summary>
+   <ul>
+     <li>Apple</li>
+     <li>Orange</li>
+     <li>Strawberry</li>
+   </ul>
+</details>
+	
+	<h2>Test ng-readonly</h2>
+	<label>Check me to make text readonly: <input type="checkbox" ng-model="checked"></label><br/>
+	<input type="text" ng-readonly="checked" value="I'm AngularJS" aria-label="Readonly field" />
+	
+	
+	<h2>Test ng-show</h2>
+	Show: <input type="checkbox" ng-model="checked" aria-label="Toggle ngShow"><br />
+	<div class="check-element animate-show-hide" ng-show="checked">
+  		I show up when your checkbox is checked.
+	</div>
+	
+</div>
+	
+	
 </body>
 <footer> 
-	<a href="#/"><input type="button" value="Retour au menu"></a>
+	<br><a ng-href="#!/"><input type="button" value="Retour au menu"></a>
 </footer>
 </html>

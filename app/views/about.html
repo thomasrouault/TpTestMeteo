@@ -1,1 +1,66 @@
-<p>This is the about view.</p>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>About</title>
+</head>
+
+<body>
+	<div ng-controller="AboutCtrl">
+		<h1>About</h1>
+		<h2>Test ng-repeat</h2>
+
+  <button ng-click="removeFirst()">Remove First</button>
+  <button ng-click="updateAge()">Update Age</button>
+  <button ng-click="copy()">Copy</button>
+  <button ng-click="reset()">Reset List</button>
+  <br>
+  <code>track by $id(friend)</code> (default):
+  <ul>
+    <li ng-repeat="friend in friends">
+      {{friend.name}} is {{friend.age}} years old.
+    </li>
+  </ul>
+  <code>track by $id(friend)</code> (default), with age one-time binding:
+  <ul>
+    <li ng-repeat="friend in friends">
+      {{friend.name}} is {{::friend.age}} years old.
+    </li>
+  </ul>
+  </div>
+  <h2>Test ng-app</h2>
+  <div ng-controller="GoodController1">
+        I can add: {{a}} + {{b}} =  {{ a+b }}
+
+        <p>This renders because the controller does not fail to
+           instantiate, by using explicit annotation style (see
+           script.js for details)
+        </p>
+    </div>
+
+    <div ng-controller="GoodController2">
+        Name: <input ng-model="name"><br />
+        Hello, {{name}}!
+
+        <p>This renders because the controller does not fail to
+           instantiate, by using explicit annotation style
+           (see script.js for details)
+        </p>
+    </div>
+
+    <div ng-controller="BadController">
+        I can add: {{a}} + {{b}} =  {{ a+b }}
+
+        <p>The controller could not be instantiated, due to relying
+           on automatic function annotations (which are disabled in
+           strict mode). As such, the content of this section is not
+           interpolated, and there should be an error in your web console.
+        </p>
+    </div>
+  
+
+</body>
+<footer> 
+	<a href="#/"><input type="button" value="Retour au menu"></a>
+</footer>
+</html>

@@ -27,6 +27,11 @@ angular
         controller: 'MeteoCtrl',
         controllerAs: 'meteo'
       })
+      .when('/meteobycity', {
+        templateUrl: 'views/meteobycity.html',
+        controller: 'MeteoByCityCtrl',
+        controllerAs: 'meteobycity'
+      })
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
